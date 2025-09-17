@@ -1,0 +1,20 @@
+environments:
+  prod:
+    values:
+      - environments/prod.yaml
+
+---
+repositories:
+- name: prometheus-community
+  url: https://prometheus-community.github.io/helm-charts
+
+---
+releases:
+- name: prometheus
+  namespace: kube-prometheus
+  chart: prometheus-community/kube-prometheus-stack
+  version: 45.7.0
+  values:
+    - kube-prometheus-values.yaml
+    - environments/{{ .Environment.Name }}.yaml
+    

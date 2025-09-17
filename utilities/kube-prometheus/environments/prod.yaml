@@ -1,0 +1,8 @@
+prometheus:
+  prometheusSpec:
+    externalUrl: "https://kube-prometheus.app.horna.local"
+  ingress:
+    enabled: true
+    ingressClassName: "traefik"
+    hosts: 
+    - kube-prometheus.app.horna.local

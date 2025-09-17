@@ -1,0 +1,16 @@
+prometheus:
+  fullnameOverride: "prometheus"
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: "nfs-storage"
+          resources:
+            requests:
+              storage: 20Gi
+
+grafana:
+  enabled: false
+
+alertmanager:
+  enabled: false
