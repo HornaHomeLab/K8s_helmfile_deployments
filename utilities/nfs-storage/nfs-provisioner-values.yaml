@@ -1,0 +1,7 @@
+replicaCount: 1
+
+storageClass:
+  name: nfs-storage
+  provisionerName: nfs-subdir-external-provisioner
+  reclaimPolicy: Retain
+  allowVolumeExpansion: true

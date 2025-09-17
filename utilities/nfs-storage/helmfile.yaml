@@ -1,0 +1,20 @@
+environments:
+  prod:
+    values:
+      - environments/prod.yaml
+---
+repositories:
+  - name: nfs-provisioner
+    url: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
+---
+releases:
+  - name: nfs-provisioner
+    namespace: nfs-storage
+    createNamespace: true
+    chart: nfs-subdir-external-provisioner/nfs-subdir-external-provisioner
+    version: 4.0.2
+    values:
+      # Common values for the NFS provisioner
+      - nfs-provisioner-values.yaml
+      # Environment-specific values will be merged on top
+      - environments/{{ .Environment.Name }}.yaml
