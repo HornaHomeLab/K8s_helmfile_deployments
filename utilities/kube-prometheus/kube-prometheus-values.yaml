@@ -1,6 +1,8 @@
 prometheus:
   fullnameOverride: "prometheus"
   prometheusSpec:
+    remoteWrite:
+      - url: "http://prometheus-service.prometheus.svc.cluster.local:9090/api/v1/write"
     storageSpec:
       volumeClaimTemplate:
         spec:
